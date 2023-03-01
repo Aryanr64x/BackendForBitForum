@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import { errorHandler } from './controllers/errorController.js';
 import authRouter from './routes/authRouter.js';
+import postRouter from './routes/postRouter.js';
 
 const app = express();
 app.use(express.json())
@@ -10,6 +11,7 @@ app.use(cors())
 
 
 app.use('/api', authRouter);
+app.use('/api/post', postRouter)
 
 app.use(
     errorHandler
