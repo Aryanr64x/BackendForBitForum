@@ -9,6 +9,12 @@ const mongooseSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    votes_count:{
+        type : Integer,
+        default:0           // like button in ig jesa kch
+    }
+    
+    
 });
 
 
