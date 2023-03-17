@@ -3,7 +3,7 @@ import Post from '../models/Post.js'
 
 export const createPost = asyncHandler(async (req, res) => {
     const pos = await Post.create({   //to insert a new entry in db 
-        title: req.body.title,
+        title: req.body.title,  //coming from FE
         body: req.body.body, 
     })
     res.json({
@@ -20,8 +20,7 @@ export const getPost = asyncHandler(async (req, res) => {
  res.json({
    posts:posts
 })
- 
-    
+   
 });
 export const incease_votes = asyncHandler(async (req, res) => {
     
