@@ -3,7 +3,7 @@ import Post from '../models/Post.js'
 
 export const createPost = asyncHandler(async (req, res) => {
     const pos = await Post.create({   //to insert a new entry in db 
-        title: req.body.title,  //coming from FE
+        title: req.body.title,  
         body: req.body.body, 
     })
     res.json({
