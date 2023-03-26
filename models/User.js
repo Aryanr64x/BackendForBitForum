@@ -3,8 +3,8 @@ import mongoose from 'mongoose'
 const userSchema = mongoose.Schema({
     username:{
         type: String,
-        required: [true, "It is mandatory to have a string"],
-        minLength: 5,
+        required: [true, "It is mandatory to have a username"],
+        minLength: [5, "Please enter atleast 5 characters"],
         unique: true
     },
 
