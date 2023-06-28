@@ -5,7 +5,6 @@ const mongooseSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    
     creator_name: {
         type: String,
         required: true,
@@ -14,6 +13,10 @@ const mongooseSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 

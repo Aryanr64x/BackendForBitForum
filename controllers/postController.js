@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import Post from '../models/Post.js'
+import Comment from '../models/Comment.js';
 
 export const createPost = asyncHandler(async (req, res) => {
     const post = await Post.create({   //to insert a new entry in db 
@@ -17,7 +18,7 @@ export const createPost = asyncHandler(async (req, res) => {
 
 export const getPosts = asyncHandler(async (req, res) => {
 
-    const posts = await Post.find({});  // to select all entries  
+    const posts = await Post.find({}).sort({date:-1});  // to select all entries  
     res.json({
         posts: posts
     })
@@ -28,7 +29,7 @@ export const getPosts = asyncHandler(async (req, res) => {
 
 export const getSinglePost = asyncHandler(async (req, res) => {
     const post = await Post.findById(req.params.id)
-    const comments = await Post.find({'_id': {$in:post.comments}})
+    const comments = await Comment.find({'_id': {$in:post.comments}}).sort({date:-1})
     res.json({post, comments})
 
 

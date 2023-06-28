@@ -42,6 +42,7 @@ export const protect = asyncHandler(async(req, res, next) => {
             return res.status(401).send("User no longer exists in the database");
         }
         req.body.user = user;
+    
         next()
     } else {
         res.status(401).send("Your are not authorized for this request");
